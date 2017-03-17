@@ -17,14 +17,16 @@ class Controller_news extends Controller
     function action_index($id = null)
     {
         $id = (int)$id;
-        if($id == 0 || $id == null){
+        if ($id == 0 || $id == null) {
             header('Location: /');
         }
         $data['commentaries'] = $this->model->get_commentaries($id);
         $data['new'] = $this->model->get_one($id);
-        $this->view->generate('news_view.php', 'template_view.php',$data);
+        $this->view->generate('news_view.php', 'template_view.php', $data);
     }
-    function action_commentary(){
-        echo $this->model->new_comment($_POST['message'],$_POST['date'],$_POST['id']);
+
+    function action_commentary()
+    {
+        echo $this->model->new_comment($_POST['message'], $_POST['date'], $_POST['id']);
     }
 }

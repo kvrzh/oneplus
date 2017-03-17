@@ -16,7 +16,8 @@
                 <td><?= $comment['date'] ?> </td>
                 <td><?= $comment['text'] ?></td>
                 <td>
-                    <a class="btn btn-danger" href="/admin/deletecomment/<?= $comment['id'] ?>" role="button">Удалить</a>
+                    <a class="btn btn-danger" href="/admin/deletecomment/<?= $comment['id'] ?>"
+                       role="button">Удалить</a>
                 </td>
             </tr>
         <?php endforeach; ?>

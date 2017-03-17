@@ -10,13 +10,13 @@
             <h2>Коментарии</h2>
             <div class="commentary-group">
                 <?php foreach ($commentaries as $commentary): ?>
-                <div class="commentary">
-                    <span><?= $commentary['text'] ?></span>
-                    <small><?= $commentary['date'] ?></small>
-                </div>
+                    <div class="commentary">
+                        <span><?= $commentary['text'] ?></span>
+                        <small><?= $commentary['date'] ?></small>
+                    </div>
                 <?php endforeach; ?>
             </div>
-            <form role="form" method="post" action="" >
+            <form role="form" method="post" action="">
                 <input id="id" type="hidden" value="<?= $new['id'] ?>">
                 <div class="form-group">
                     <label for="commentary">Введите комментарий</label>

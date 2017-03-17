@@ -10,6 +10,6 @@ class Controller_404 extends Controller
 {
     function action_index()
     {
-       echo 'ne rabotaet';
+        echo 'ne rabotaet';
     }
 }

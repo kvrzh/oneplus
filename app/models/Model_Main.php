@@ -8,9 +8,11 @@
  */
 class Model_Main extends Model
 {
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
+
     public function get_news()
     {
         $query = $this->db->query('SELECT id, Text, image, Date FROM news');

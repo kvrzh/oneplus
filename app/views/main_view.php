@@ -5,7 +5,7 @@
             <?php foreach ($news as $new): ?>
                 <div class="news-item ">
                     <a href="/news/index/<?= $new['id'] ?>">
-                    <img src="/img/<?= $new['image'] ?>">
+                        <img src="/img/<?= $new['image'] ?>">
                     </a>
                     <div class="news-item-info">
                         <small><?= $new['Date'] ?></small>

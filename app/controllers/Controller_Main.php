@@ -13,10 +13,11 @@ class Controller_Main extends Controller
         parent::__construct();
         $this->model = new Model_Main();
     }
+
     function action_index()
     {
         $data['news'] = $this->model->get_news();
-        $this->view->generate('main_view.php', 'template_view.php',$data);
+        $this->view->generate('main_view.php', 'template_view.php', $data);
     }
 
 }
