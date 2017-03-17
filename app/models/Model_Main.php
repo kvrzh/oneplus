@@ -13,6 +13,9 @@ class Model_Main extends Model
         parent::__construct();
     }
 
+    /**
+     * @return array
+     */
     public function get_news()
     {
         $query = $this->db->query('SELECT id, Text, image, Date FROM news');

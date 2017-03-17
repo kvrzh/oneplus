@@ -13,6 +13,10 @@ class Model_News extends Model
         parent::__construct();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function get_one($id)
     {
         $query = $this->db->prepare('SELECT * FROM news WHERE id = :id');
@@ -20,6 +24,10 @@ class Model_News extends Model
         return $query->fetch();
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public function get_commentaries($id)
     {
 
@@ -29,6 +37,12 @@ class Model_News extends Model
         return $result;
     }
 
+    /**
+     * @param $text
+     * @param $date
+     * @param $news_id
+     * @return bool
+     */
     public function new_comment($text, $date, $news_id)
     {
         $this->db->beginTransaction();

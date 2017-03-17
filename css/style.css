@@ -5887,7 +5887,9 @@ h1 {
 
 .commentaries {
   background: rgba(255, 255, 255, 0.95);
-  padding: 10px 40px; }
+    padding: 10px 40px;
+    margin-bottom: 20px;
+}
   .commentaries .commentary {
     border-bottom: 1px solid #d4d4d4;
     padding: 5px 0; }
@@ -5899,6 +5901,10 @@ h1 {
       color: #d35400; }
   .commentaries form {
     margin-top: 20px; }
+
+.commentaries form button {
+    margin-bottom: 10px;
+}
 
 table tr td:last-child a {
   margin-bottom: 10px; }

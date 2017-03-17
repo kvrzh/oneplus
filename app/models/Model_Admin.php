@@ -13,6 +13,11 @@ class Model_Admin extends Model
         parent::__construct();
     }
 
+    /**
+     * @param $email
+     * @param $password
+     * @return bool
+     */
     public function check_admin($email, $password)
     {
         $query = $this->db->prepare('SELECT id FROM admin WHERE email = :email and password = :password');
@@ -23,12 +28,21 @@ class Model_Admin extends Model
         return false;
     }
 
+    /**
+     * @return array
+     */
     public function get_news()
     {
         $query = $this->db->query('SELECT * FROM news');
         return $query->fetchAll();
     }
 
+    /**
+     * @param $text
+     * @param $more
+     * @param $date
+     * @param $image
+     */
     public function add_news($text, $more, $date, $image)
     {
         $query = $this->db->prepare("INSERT INTO news (more, Text, date, image) VALUES (:more, :text, :date, :image)");
@@ -43,6 +57,10 @@ class Model_Admin extends Model
         }
     }
 
+    /**
+     * @param $id
+     * @param $array
+     */
     public function update_news($id, $array)
     {
         $sql = "UPDATE news SET ";
@@ -64,6 +82,9 @@ class Model_Admin extends Model
         }
     }
 
+    /**
+     * @param $id
+     */
     public function delete_news($id)
     {
         $this->db->beginTransaction();
@@ -79,6 +100,10 @@ class Model_Admin extends Model
         $this->db->commit();
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function get_news_by_id($id)
     {
         $query = $this->db->prepare('SELECT * FROM news WHERE id = :id');
@@ -86,6 +111,10 @@ class Model_Admin extends Model
         return $query->fetch();
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public function get_commentaries($id)
     {
         $query = $this->db->prepare('SELECT * FROM commentaries c INNER JOIN news_commentaries nc ON  c.id = nc.commentaries_id INNER JOIN news n ON news_id = n.id WHERE news_id = :id');
@@ -94,6 +123,9 @@ class Model_Admin extends Model
         return $result;
     }
 
+    /**
+     * @param $id
+     */
     public function deletecomment($id)
     {
         $this->db->beginTransaction();
