@@ -48,6 +48,7 @@ class Controller_Admin extends Controller
     function action_delete($id)
     {
         $this->model->delete_news($id);
+        header('Location: /admin/');
     }
 
     function action_edit($id)

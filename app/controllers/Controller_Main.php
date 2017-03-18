@@ -34,17 +34,4 @@ class Controller_Main extends Controller
         }
 
     }
-
-    function action_morenews()
-    {
-        $data['news'] = $this->model->get_news($_POST['id']);
-        if (isset($data['news'][3])) {
-            unset($data['news'][3]);
-            $data['moreNews'] = true;
-        } else {
-            $data['moreNews'] = false;
-        }
-        $this->view->generate('main_view.php', 'template_view.php', $data);
-    }
-
 }
