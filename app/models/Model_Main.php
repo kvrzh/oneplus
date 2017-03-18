@@ -16,9 +16,12 @@ class Model_Main extends Model
     /**
      * @return array
      */
-    public function get_news()
+    public function get_news($from = null)
     {
-        $query = $this->db->query('SELECT id, Text, image, Date FROM news');
+        if ($from == null) {
+            $from = 0;
+        }
+        $query = $this->db->query('SELECT * FROM news WHERE id > ' . $from . ' LIMIT 4');
         return $query->fetchAll();
     }
 }

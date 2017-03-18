@@ -16,7 +16,34 @@ class Controller_Main extends Controller
 
     function action_index()
     {
-        $data['news'] = $this->model->get_news();
+        $id = null;
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
+        }
+        $data['news'] = $this->model->get_news($id);
+        if (isset($data['news'][3])) {
+            unset($data['news'][3]);
+            $data['moreNews'] = true;
+        } else {
+            $data['moreNews'] = false;
+        }
+        if (isset($_POST['id']) && $_POST['id'] != 0) {
+            $this->view->load('more_news_view.php', $data);
+        } else {
+            $this->view->generate('main_view.php', 'template_view.php', $data);
+        }
+
+    }
+
+    function action_morenews()
+    {
+        $data['news'] = $this->model->get_news($_POST['id']);
+        if (isset($data['news'][3])) {
+            unset($data['news'][3]);
+            $data['moreNews'] = true;
+        } else {
+            $data['moreNews'] = false;
+        }
         $this->view->generate('main_view.php', 'template_view.php', $data);
     }
 

@@ -26,4 +26,25 @@ $(document).ready(function () {
             }
         });
     });
+    $('.news-list').on('click', '#button_pagination', function () {
+        loadNews();
+    });
 });
+function loadNews() {
+    var lastElem = $('input#news_id').last();
+    var lastId = $(lastElem).val();
+    var parent = $('.news-item').parent();
+    $('#button_pagination').remove();
+    $(parent).append('<div class="new_news_spin"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></div>');
+    var url = '/';
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {"id": lastId},
+        cache: false,
+        success: function (response) {
+            $('.new_news_spin').remove();
+            $(parent).append(response);
+        }
+    });
+}

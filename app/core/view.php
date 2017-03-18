@@ -17,4 +17,12 @@ class View
         }
         include 'app/views/template/' . $template_view;
     }
+
+    function load($content_view, $data = null)
+    {
+        if (is_array($data)) {
+            extract($data);
+        }
+        include 'app/views/' . $content_view;
+    }
 }

@@ -39,6 +39,12 @@ h1 {
   margin: 20px 0;
   min-height: calc(100vh - 40px);
   padding: 0 30px;
+  button {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 }
 
 .news-item {
@@ -143,4 +149,14 @@ table {
   margin-top: 10px;
   display: block;
   margin-left: 10px;
+}
+
+.new_news_spin {
+  height: 150px;
+  text-align: center;
+  padding-right: 15px;
+  i.fa-spinner {
+    margin-top: 50px;
+    font-size: 30px;
+  }
 }
